@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from dotenv import load_dotenv
 import dj_database_url
 import os
 from pathlib import Path
-
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,8 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^7tcv_5$gntv^s%-ygh%=r9qamngaf^w=_&04!na9!e1i8kr)y'
-
+SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'onemoretime.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
     'default':dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-#"postgresql://onemoretime_database_user:a0LiiTYZ0xTGMUYiS5T0cnu9ZT8QeutR@dpg-cqro4f8gph6c73a2ojs0-a.singapore-postgres.render.com/onemoretime_database"
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
