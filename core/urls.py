@@ -8,5 +8,5 @@ app_name = 'core'
 urlpatterns = [
     path('', views.index, name='index'),
     path('news/', views.news, name='news'),
-    path('storeInfo', views.storeInfo, name='storeInfo'),
+    path('storeInfo/', views.storeInfo, name='storeInfo'),
     ]

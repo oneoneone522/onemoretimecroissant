@@ -1,4 +1,33 @@
 {% extends 'core/base.html' %}
 {% block title %}禮盒資訊{% endblock %}
 {% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <img src="" alt="">
+            </div>
+            <div class="col">
+                <h2>熱門禮盒</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque voluptate est ipsum suscipit soluta eum. Ducimus, voluptates. Odit nam, id non deleniti vel obcaecati culpa tenetur fugit saepe. Incidunt, perferendis.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            {% for box in boxs %}
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        {% if box.image.url %}
+                        <img src="{{ box.image.url }}" class="card-img-top" alt="{{box.name}}">
+                        {% else %}
+                        <img src="..." alt="請上傳商品圖片">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ box.name }}</h5>
+                        <p class="card-text">{{ box.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

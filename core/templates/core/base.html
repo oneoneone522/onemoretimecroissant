@@ -9,7 +9,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Navbar</a>
+          <a class="navbar-brand" href="/">
+            <img src="static/assets/logo.png" alt="logo">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -19,22 +21,10 @@
                 <a class="nav-link active" aria-current="page" href="/">首頁</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'item:items' %}">菜單</a>
+                <a class="nav-link" aria-current="page" href="{% url 'item:items' %}">菜單</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  菜單
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">牛角可頌</a></li>
-                  <li><a class="dropdown-item" href="#">手做點心&派</a></li>
-                  <li><a class="dropdown-item" href="#">花神咖啡飲品</a></li>
-                  <li><a class="dropdown-item" href="#">One More Time好茶系列</a></li>
-                  <li><a class="dropdown-item" href="#">mini可頌系列</a></li>
-                </ul>
-              </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">禮盒資訊</a>
+                <a class="nav-link" href="{% url 'item:box' %}">禮盒資訊</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'core:news' %}">最新消息</a>
@@ -42,12 +32,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'core:storeInfo' %}">門市資訊</a>
               </li>
-              
             </ul>
-            <!-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
           </div>
         </div>
       </nav>
@@ -89,10 +74,10 @@
             <div class="row">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li><a style="text-decoration: none;" class="text-white" href="/">首頁</a></li>
-                    <li><a style="text-decoration: none;" class="text-white" href="/">菜單</a></li>
-                    <li><a style="text-decoration: none;" class="text-white" href="/">禮盒資訊</a></li>
-                    <li><a style="text-decoration: none;" class="text-white" href="/">最新消息</a></li>
-                    <li><a style="text-decoration: none;" class="text-white" href="/">門市資訊</a></li>
+                    <li><a style="text-decoration: none;" class="text-white" href="{% url 'item:items' %}">菜單</a></li>
+                    <li><a style="text-decoration: none;" class="text-white" href="{% url 'item:box' %}">禮盒資訊</a></li>
+                    <li><a style="text-decoration: none;" class="text-white" href="{% url 'core:news' %}">最新消息</a></li>
+                    <li><a style="text-decoration: none;" class="text-white" href="{% url 'core:storeInfo' %}">門市資訊</a></li>
                 </ul>
             </div>
         </div>

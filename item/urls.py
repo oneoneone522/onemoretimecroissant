@@ -5,4 +5,5 @@ app_name = 'item'
 
 urlpatterns = [
     path('', views.items, name='items'),
+    path('box/',views.box, name='box'),
 ]
