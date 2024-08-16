@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block title %}菜單{% endblock %}
+{% block content %}
+<div class="container">
+    <ul class="nav nav-tabs mt-5">
+        {% for category in categories %}
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="{% url 'item:items' %}?category={{ category.id }}">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% for category in categories %}
+        <div class="row mt-5">
+            <h1 style="text-align: center;">{{ category.name }}</h1>
+        </div>
+        <div class="row">
+            {% for item in category.items.all %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        {% if item.image.url %}
+                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                        {% else %}
+                            <img src="..." class="card-img-top" alt="pic should be uploaded">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text">{{ item.price }}元</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
