@@ -6,9 +6,6 @@ def index(request):
     return render(request,'core/index.html',{
         'items':items,
     })
-def menu(request):
-    return render(request, 'item/menu.html')
-
 def news(request):
     return render(request, 'core/news.html')
 
