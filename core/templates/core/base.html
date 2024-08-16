@@ -38,7 +38,6 @@
       </nav>
 {% block content %}
 {% endblock %}
-
 <div class="container-fluid bg-dark text-white mt-5">
     <div class="row">
         <div class="col-4 my-5">
@@ -64,15 +63,13 @@
         <div class="col-4 my-5">
             <p><strong>地址：</strong>Address</p>
             <p><strong>電話：</strong>Phone Number</p>
-            <a href="#" style="text-decoration: none; color: white;"><strong>電子郵件：Email</strong></a>
-            <p>&copy;Company Nmae</p>
+            <a href="#" style="text-decoration: none; color: white;"><strong>電子郵件：</strong>Email</a>
+            <p>&copy;One More Time croissant & coffee</p>
         </div>
         <div class="col-4 my-5">
             <div class="row">
-                <p>Menu</p>
-            </div>
-            <div class="row">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><p><strong>Menu</strong></p></li>
                     <li><a style="text-decoration: none;" class="text-white" href="/">首頁</a></li>
                     <li><a style="text-decoration: none;" class="text-white" href="{% url 'item:items' %}">菜單</a></li>
                     <li><a style="text-decoration: none;" class="text-white" href="{% url 'item:box' %}">禮盒資訊</a></li>

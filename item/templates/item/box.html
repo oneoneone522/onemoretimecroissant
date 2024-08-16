@@ -3,13 +3,17 @@
 {% block content %}
     <div class="container">
         <div class="row mt-5">
-            <div class="col">
-                <img src="" alt="">
-            </div>
-            <div class="col">
-                <h2>熱門禮盒</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque voluptate est ipsum suscipit soluta eum. Ducimus, voluptates. Odit nam, id non deleniti vel obcaecati culpa tenetur fugit saepe. Incidunt, perferendis.</p>
-            </div>
+            {% for box in boxs %}
+            {% if box.hot_item %}
+                <div class="col">
+                    <img src="{{ box.image.url }}" alt="">
+                </div>
+                <div class="col">
+                    <h2>{{ box.name}}</h2>
+                    <p>{{ box.description }}</p>
+                </div>
+            {% endif %}
+            {% endfor %}
         </div>
         <hr>
         <div class="row">
