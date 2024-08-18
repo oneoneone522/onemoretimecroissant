@@ -10,22 +10,22 @@
         {% endfor %}
       </ul>
     {% for category in categories %}
-        <div class="row mt-5" id="category-{{ category.id }}">
+        <div class="row my-5" id="category-{{ category.id }}">
             <h1 style="text-align: center;">{{ category.name }}</h1>
         </div>
-        <div class="row">
+        <div class="row g3">
             {% for item in category.items.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
+                <div class="col-4 col-md-3">
+                    <div class="card mb-4 h-100">
                         {% if item.image.url %}
                             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
                         {% else %}
                             <img src="..." class="card-img-top" alt="pic should be uploaded">
                         {% endif %}
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ item.name }}</h5>
                             <p class="card-text">{{ item.description }}</p>
-                            <p class="card-text">{{ item.price }}元</p>
+                            <p class="card-text  mt-auto"> NT$ {{ item.price }}元</p>
                         </div>
                     </div>
                 </div>
