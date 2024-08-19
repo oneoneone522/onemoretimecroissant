@@ -1,8 +1,14 @@
 from django.db import models
 
 class Carousel(models.Model):
-    name = models.TextField(max_length=10, blank=True)
-    image = models.ImageField(upload_to='item_images')
+    name = models.CharField()
+    image = models.ImageField(upload_to='core_images')
 
+    def __str__(self):
+        return self.name
+class News(models.Model):
+    name = models.CharField()
+    content = models.TextField(max_length=500)
+    image = models.ImageField(upload_to='core_images')
     def __str__(self):
         return self.name
