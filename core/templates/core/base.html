@@ -18,6 +18,18 @@
         body {
             padding-top: 56px; /* 小屏幕设备的导航栏高度 */
         }
+         .carousel-inner img, .col-5 img {
+          width: 100%; /* 讓圖片在小螢幕時佔滿寬度 */
+          height: auto; /* 保持圖片的比例 */
+        }
+      .col-5, .col-7 {
+          flex: 100%; /* 讓圖片和文字在小螢幕時堆疊顯示 */
+          max-width: 100%;
+        }
+      .container, .container-fluid {
+          padding-left: 0;
+          padding-right: 0;
+        }
     }
   </style>
 </head>
