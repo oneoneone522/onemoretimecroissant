@@ -2,11 +2,11 @@
 {% block title %}禮盒資訊{% endblock %}
 {% block content %}
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-5" style="height: 90vh;">
             {% for box in boxs %}
             {% if box.hot_item %}
-                <div class="col">
-                    <img src="{{ box.image.url }}" alt="">
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <img src="{{ box.image.url }}" style="height: 500px; width: 500px;" alt="">
                 </div>
                 <div class="col">
                     <h2>{{ box.name}}</h2>
@@ -18,16 +18,17 @@
         <hr>
         <div class="row">
             {% for box in boxs %}
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100 d-flex flex-column" style="border: 1px solid #dee2e6; border-radius: .25rem;">
                         {% if box.image.url %}
-                        <img src="{{ box.image.url }}" class="card-img-top" alt="{{box.name}}">
+                        <img src="{{ box.image.url }}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover;" alt="{{box.name}}">
                         {% else %}
-                        <img src="..." alt="請上傳商品圖片">
+                        <img src="..." style="height: 300px; width: 100%; object-fit: cover;" alt="請上傳商品圖片">
                         {% endif %}
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ box.name }}</h5>
-                        <p class="card-text">{{ box.description }}</p>
+                            <p class="card-text">{{ box.description }}</p>
+                            <div class="mt-auto"></div> <!-- Pushes content to the bottom -->
                         </div>
                     </div>
                 </div>
