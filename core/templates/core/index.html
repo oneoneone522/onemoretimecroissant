@@ -23,6 +23,24 @@
         <span class="visually-hidden">Next</span>
       </button>
   </div>
+  <section>
+    <div class="scroll text1">
+        <div>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+        </div>
+        <div>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+            One <span>More Time Coffe & Croissant</span>
+        </div>
+    </div>
+</section>
+
   <div class="container mt-5">
     <div class="row">
       <div class="col-5">
@@ -31,9 +49,11 @@
       <div class="col-7">
         <h2>品牌理念</h2>
         <p>One More Time - 迷你可頌領導品牌<br>
+          <br>
           One More Time, Monday Smiles<br>
           一個即使在星期一也能讓人微笑的地方<br>          
-          在忙碌的都市角落，有一個小小的空間，不僅賣可頌和咖啡，還賣故事，這裡是 OneMoreTime Cafe。<br>          
+          在忙碌的都市角落，有一個小小的空間，不僅賣可頌和咖啡，還賣故事，這裡是 OneMoreTime Cafe。<br>
+          <br>      
           對我們而言 OneMoreTime 不僅是一個名字，同時是關於勇氣、熱情和夢想的故事，一個讓人在享受第一口咖啡和可頌時，就能感受到愛與堅持的地方。<br>
           對於顧客而言，它象徵著我們的一個承諾：無論何時，只要您再來 我們都會再次以最好的品質以及最誠懇燦爛的笑容迎接您。 <br>
           我們的終極目標是創造一個即使在星期一也能讓人微笑的地方<br>
@@ -46,7 +66,7 @@
     <div class="row">
       {% for item in items %}
         <div class="col-12 col-sm-6 col-md-4 mb-4">
-          <div class="card h-100" style="border: bg-light;">
+          <div class="card h-100" style="border: none;">
             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
             <div class="card-body">
               <h2>{{ item.name }}</h2>
