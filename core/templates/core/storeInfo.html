@@ -1,31 +1,29 @@
 {% extends 'core/base.html' %}
 {% block title %}門市資訊{% endblock %}
 {% block content %}
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     <div class="row">
-        <h1 style="text-align: center; padding-top: 10px; padding-bottom: 10px;"><strong>門市資訊</strong></h1>
+        <h1 class="text-center py-3"><strong>門市資訊</strong></h1>
     </div>
     <div class="row">
-        <div class="col-4">
-            <img src="https://picsum.photos/200/200" alt="">
-        </div>
-        <div class="col-4">
-            <img src="https://picsum.photos/200/200" alt="">
-        </div>
-        <div class="col-4">
-            <img src="https://picsum.photos/200/200" alt="">
-        </div>
-    </div>
+        {% for storeImg in storeImgs %}
+            <div class="col-12 col-md-4 d-flex justify-content-center my-3">
+                <img src="{{storeImg.image.url}}" alt="門市環境照片" style="max-width: 100%; height: auto; object-fit: cover;">
+            </div>
+        {% endfor %} 
+    </div>    
     <hr>
     <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <p>營業時間：(Mon) ~(sat) 11:00~18:00</p>
-            <p>門市資訊：</p>
-            <p>電話：</p>
+            <p>地址：高雄市三民區凱旋一路189號</p>
+            <p>電話：0912957766</p>
         </div>
-        <div class="col-6">
-            <img src="https://picsum.photos/300/200" alt="">
-        </div>
+        {% if bigImg %}
+            <div class="col-12 col-md-6">
+                <img src="{{ bigImg.image.url }}" alt="" style="max-width: 100%; height: auto; object-fit: cover;">
+            </div>
+        {% endif %}
     </div>
     <hr>
     <div class="row mt-5">

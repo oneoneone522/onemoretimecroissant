@@ -29,6 +29,14 @@ background-color: #000;
     .description {
         display: none;
     }
+    .menu {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    .menu {
+        display: block;
+    }
 }
 section
 {

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center; padding-top: 10px;"><strong>菜單</strong></h1>
+        <h1 style="text-align: center; padding-top: 30px;"><strong>菜單</strong></h1>
     </div>
     <ul class="nav nav-tabs mt-5">
         {% for category in categories %}
@@ -19,9 +19,9 @@
         <div class="row g3">
             {% for item in category.items.all %}
                 <div class="col-4 col-md-3">
-                    <div class="card mb-4 h-100">
+                    <div class="card mb-4 h-100" style="border: none;">
                         {% if item.image.url %}
-                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}" style="height: 200px; object-fit: cover; width: 100%;">
                         {% else %}
                             <img src="..." class="card-img-top" alt="pic should be uploaded">
                         {% endif %}

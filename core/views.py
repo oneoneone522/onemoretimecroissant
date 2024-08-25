@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from item.models import Item
-from .models import Carousel, News
+from .models import Carousel, News, Storeimg
 def index(request):
     items = Item.objects.filter(hot_item = True)[0:3]
     context = {
@@ -19,4 +19,9 @@ def news(request):
     })
 
 def storeInfo(request):
-    return render(request, 'core/storeInfo.html')
+    storeImgs = Storeimg.objects.exclude(the_big=True)
+    bigImg = Storeimg.objects.filter(the_big=True).first()
+    return render(request, 'core/storeInfo.html',{
+        'storeImgs':storeImgs,
+        'bigImg':bigImg,
+    })
