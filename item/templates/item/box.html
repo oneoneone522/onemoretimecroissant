@@ -2,31 +2,34 @@
 {% block title %}禮盒資訊{% endblock %}
 {% block content %}
     <div class="container">
-        <div class="row mt-5" style="height: 90vh;">
+        <div class="row">
+            <h1 style="text-align: center; padding-top: 60px;"><strong>One More Time<br>Gift Box</strong></h1>
+        </div>
+        <div class="row mt-5">
             {% for box in boxs %}
             {% if box.hot_item %}
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="{{ box.image.url }}" style="height: 500px; width: 500px;" alt="">
+                <div class="col-12 col-md-6 mb-4 d-flex align-items-center">
+                    <img src="{{ box.image.url }}" class="img-fluid w-100" alt="{{ box.name }}">
                 </div>
-                <div class="col">
-                    <h2>{{ box.name}}</h2>
+                <div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center">
+                    <h2 class="mb-3"><strong>{{ box.name }}</strong></h2>
                     <p>{{ box.description }}</p>
                 </div>
             {% endif %}
             {% endfor %}
-        </div>
+        </div>        
         <hr>
         <div class="row">
             {% for box in boxs %}
                 <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card h-100 d-flex flex-column" style="border: 1px solid #dee2e6; border-radius: .25rem;">
+                    <div class="card h-100 d-flex flex-column" style="border: none;">
                         {% if box.image.url %}
                         <img src="{{ box.image.url }}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover;" alt="{{box.name}}">
                         {% else %}
                         <img src="..." style="height: 300px; width: 100%; object-fit: cover;" alt="請上傳商品圖片">
                         {% endif %}
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ box.name }}</h5>
+                            <h5 class="card-title"><strong>{{ box.name }}</strong></h5>
                             <p class="card-text">{{ box.description }}</p>
                             <div class="mt-auto"></div> <!-- Pushes content to the bottom -->
                         </div>

@@ -2,11 +2,16 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 class Carousel(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='core_images')
 
+    def save(self, *args, **kwargs):
+        if Carousel.objects.count() >= 3 and not self.pk:
+            raise ValidationError("最多只能上傳三個物件。")
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return self.name
+        return self.name    
 class Notification(models.Model):
     notice = models.CharField(max_length=100, blank=False)
     def __str__(self):

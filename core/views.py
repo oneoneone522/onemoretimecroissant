@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from item.models import Item
 from .models import Carousel, Notification, News, Storeimg
+
 def index(request):
     items = Item.objects.filter(hot_item = True)[0:3]
     context = {

@@ -39,8 +39,18 @@
             One <span>More Time Coffe & Croissant</span>
         </div>
     </div>
-</section>
-
+  </section>
+  <div class="container">
+    <div class="row">
+      <h4 style="text-align: center; padding-bottom: 10px;"><strong>Annoucements</strong></h4>
+    </div>
+    {% for notice in notices %}
+      <div class="row">
+        <p style="text-align: center;"><strong>{{ notice.notice }}</strong></p>
+      </div>
+    {% endfor %}
+    
+  </div>
   <div class="container mt-5">
     <div class="row">
       <div class="col-5">

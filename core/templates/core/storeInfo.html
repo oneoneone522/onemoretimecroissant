@@ -2,32 +2,41 @@
 {% block title %}門市資訊{% endblock %}
 {% block content %}
 <div class="container-fluid mt-5">
+    <!-- 標題部分 -->
     <div class="row">
-        <h1 class="text-center py-3"><strong>門市資訊</strong></h1>
+        <h1 class="text-center w-100 py-3" style="padding-top: 60px;"><strong>One More Time<br>Store</strong></h1>
     </div>
+
+    <!-- 門市照片部分 -->
     <div class="row">
         {% for storeImg in storeImgs %}
             <div class="col-12 col-md-4 d-flex justify-content-center my-3">
-                <img src="{{storeImg.image.url}}" alt="門市環境照片" style="max-width: 100%; height: auto; object-fit: cover;">
+                <img src="{{ storeImg.image.url }}" alt="門市環境照片" class="img-fluid" style="object-fit: cover;">
             </div>
         {% endfor %} 
     </div>    
+
     <hr>
+
+    <!-- 門市詳細資訊部分 -->
     <div class="row mt-5">
-        <div class="col-12 col-md-6">
-            <p>營業時間：(Mon) ~(sat) 11:00~18:00</p>
-            <p>地址：高雄市三民區凱旋一路189號</p>
-            <p>電話：0912957766</p>
+        <div class="col-12 col-md-6 mb-4 mb-md-0" style="justify-content: center;">
+            <p><strong>營業時間：</strong>(Mon) ~(Sat) 11:00~18:00</p>
+            <p><strong>地址：</strong>高雄市三民區凱旋一路189號</p>
+            <p><strong>電話：</strong>0912957766</p>
         </div>
         {% if bigImg %}
-            <div class="col-12 col-md-6">
-                <img src="{{ bigImg.image.url }}" alt="" style="max-width: 100%; height: auto; object-fit: cover;">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <img src="{{ bigImg.image.url }}" alt="門市大圖" class="img-fluid" style="object-fit: cover;">
             </div>
         {% endif %}
     </div>
+
     <hr>
+
+    <!-- Google 地圖部分 -->
     <div class="row mt-5">
-        <!-- google map api here -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.4162325466446!2d120.31459877358154!3d22.6382646305637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e05c41f758995%3A0xe6c6769a87b5b46b!2zT25lIE1vcmUgVGltZSBjYWbDqSDnh5_mpa3mmYLplpNJRyDvvIYgRkLlhazkvYjngrrmupY!5e0!3m2!1szh-TW!2stw!4v1724787694584!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 {% endblock %}
