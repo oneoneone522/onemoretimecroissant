@@ -18,7 +18,7 @@
         </div>
         <div class="row g3">
             {% for item in category.items.all %}
-                <div class="col-4 col-md-3">
+                <div class="col-6 col-md-3">
                     <div class="card mb-4 h-100" style="border: none;">
                         {% if item.image.url %}
                             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}" style="height: 200px; object-fit: cover; width: 100%;">
