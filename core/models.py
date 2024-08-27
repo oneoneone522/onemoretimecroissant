@@ -7,12 +7,18 @@ class Carousel(models.Model):
 
     def __str__(self):
         return self.name
+class Notification(models.Model):
+    notice = models.CharField(max_length=100, blank=False)
+    def __str__(self):
+        return self.notice
+    
 class News(models.Model):
     name = models.CharField()
     content = models.TextField(max_length=500)
     image = models.ImageField(upload_to='core_images')
     def __str__(self):
         return self.name
+    
 class Storeimg(models.Model):
     image = models.ImageField(upload_to='core_images')
     the_big = models.BooleanField(default=False)

@@ -6,45 +6,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{% block description %}onemoretime croissant{% endblock %}">
   <title>{% block title %}{% endblock %}</title>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
+  {% load static %}
+  <!-- <link href="/static/css/style.css" rel="stylesheet"> -->
+  <style>
+    body {
+    padding-top: 75px;
+    font-family: 'Poppins',sans-serif;
+    }
+    .offcanvas {
+    background-color: #000;
+    }
+    .carousel {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: 56px; /* 小屏幕设备的导航栏高度 */
+        }
+        .carousel-inner img, .col-5 img {
+        width: 100%; /* 讓圖片在小螢幕時佔滿寬度 */
+        height: auto; /* 保持圖片的比例 */
+        }
+        /* .col-5, .col-7 {
+        flex: 100%; 讓圖片和文字在小螢幕時堆疊顯示 
+        max-width: 100%;
+        } */
+        .container, .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+        }
+        .description {
+            display: none;
+        }
+        .menu {
+            display: none;
+        }
+    }
+    @media (min-width: 768px) {
+        .menu {
+            display: block;
+        }
+    }
+    section
+    {
+        position:relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    section .scroll {
+        padding-top: 15px;
+        width: 100%;
+        display: flex;
+    }
+    section .scroll div {
+        color: #000;
+        font-size: 25px;
+        background: #fff;
+        white-space: nowrap;
+        font-weight: 900;
+        text-transform: uppercase;
+        animation: animate 40s linear infinite;
+        animation-delay: -40s;
+    }
+    section .scroll div span 
+    {
+        -webkit-text-stroke: 2px #000;
+        color: transparent;
+    }
+
+    section .scroll div:nth-child(2)
+    {
+        animation: animate2 40s linear infinite;
+        animation-delay: -20s;
+    }
+    @keyframes animate
+    {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    @keyframes animate2
+    {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-200%);
+        }
+    }
+
+  </style>
+
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="{% static 'assets/MARU_LOGO.png' %}" alt="logo" style="width: 70px;height: 70px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">首頁</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'item:items' %}">菜單</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'item:box' %}">禮盒資訊</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'core:news' %}">最新消息</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'core:storeInfo' %}">門市資訊</a>
-                    </li>
-                </ul>
+    <!-- <div class="container" style="padding-top: 80px;">
+        <div id="notices" style="display:none;">
+            {% for notice in notices %}
+                <span>{{ notice.notice }}</span>
+            {% endfor %}
+        </div>
+    </div> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'assets/MARU_LOGO.png' %}" alt="logo" style="width: 70px;height: 70px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'item:items' %}">菜單</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'item:box' %}">禮盒資訊</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:news' %}">最新消息</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'core:storeInfo' %}">門市資訊</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-  </nav>
+    </nav>
 
 {% block content %}
 {% endblock %}
@@ -52,9 +155,9 @@
 <div class="container-fluid bg-dark text-white mt-5">
     <div class="row justify-content-center text-center">
         <div class="col-md-4 col-12 my-5">
-            <div class="row">
+            <!-- <div class="row">
                 <img src="{% static 'assets/logo-long-black.png' %}" alt="LOGO">
-            </div>
+            </div> -->
             <div class="row" style="display: flex; gap: 5px; align-items: center;">
               <a class="text-white" href="https://www.facebook.com/p/One-More-Time-caf%C3%A9-%E6%A0%A2%E8%90%AC%E8%90%AC%E5%92%96%E5%95%A1%E5%8F%AF%E9%A0%8C-100093959988432/?locale=zh_TW">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -121,11 +224,31 @@
     <div class="row">
         <div style="display: flex; justify-content: start; gap: 50px;">
             <p>Copyrights &copy;One More Time croissant & coffee All Rights Reserved.</p>
-            <p text-white>Designed and created by JL studio</p>
+            <a text-white href="https://mywebsite-pl96.onrender.com">Designed and created by JL studio</a>
         </div>
     </div>
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const noticeElements = document.querySelectorAll('#notices span');
+        const notices = Array.from(noticeElements).map(el => el.textContent);
+
+        let currentNoticeIndex = 0;
+
+        function showNextNotice() {
+            const notificationDiv = document.getElementById("notification");
+            notificationDiv.textContent = notices[currentNoticeIndex];
+            
+            // 更新索引值，如果到达最后一条通知则循环回第一条
+            currentNoticeIndex = (currentNoticeIndex + 1) % notices.length;
+        }
+
+        // 首次调用显示第一个通知
+        showNextNotice();
+        
+        // 每隔5秒切换到下一条通知
+        setInterval(showNextNotice, 5000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 </body>
 </html>

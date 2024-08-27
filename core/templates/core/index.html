@@ -47,9 +47,8 @@
         <img src="/static/assets/178733_0.jpg" style="width: 100%;" alt="...">
       </div>
       <div class="col-7">
-        <h2>品牌理念</h2>
-        <p>One More Time - 迷你可頌領導品牌<br>
-          <br>
+        <h2><strong>品牌理念</strong></h2>
+        <h3>One More Time - 迷你可頌領導品牌</h3><br>
           One More Time, Monday Smiles<br>
           一個即使在星期一也能讓人微笑的地方<br>          
           在忙碌的都市角落，有一個小小的空間，不僅賣可頌和咖啡，還賣故事，這裡是 OneMoreTime Cafe。<br>
@@ -61,7 +60,7 @@
       </div>
     </div>
   </div>
-  <h2 style="text-align: center;">熱門商品</h2>
+  <h2 style="text-align: center;"><strong>熱門商品</strong></h2>
   <div class="container-fluid mt-5">
     <div class="row">
       {% for item in items %}
@@ -69,7 +68,7 @@
           <div class="card h-100" style="border: none;">
             <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
             <div class="card-body">
-              <h2>{{ item.name }}</h2>
+              <h2><strong>{{ item.name }}</strong></h2>
               <p class="card-text">{{ item.description }}</p>
               <p class="card-text">NT$ {{ item.price }}</p>
             </div>
