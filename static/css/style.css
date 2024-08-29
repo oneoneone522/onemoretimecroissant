@@ -18,10 +18,6 @@ background-color: #000;
       width: 100%; /* 讓圖片在小螢幕時佔滿寬度 */
       height: auto; /* 保持圖片的比例 */
     }
-    /* .col-5, .col-7 {
-      flex: 100%; 讓圖片和文字在小螢幕時堆疊顯示 
-      max-width: 100%;
-    } */
     .container, .container-fluid {
       padding-left: 0;
       padding-right: 0;
@@ -31,6 +27,9 @@ background-color: #000;
     }
     .menu {
         display: none;
+    }
+    section .scroll div {
+        font-weight: 700; /* 針對小螢幕稍微減輕字體粗細 */
     }
 }
 @media (min-width: 768px) {
@@ -52,6 +51,8 @@ section .scroll {
     display: flex;
 }
 section .scroll div {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: #000;
     font-size: 25px;
     background: #fff;
