@@ -20,7 +20,7 @@ SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
-ALLOWED_HOSTS = ['onemoretimecroissant.onrender.com', '127.0.0.1',]
+ALLOWED_HOSTS = ['onemoretimecroissant.onrender.com', '127.0.0.1','omt811.com','www.omt811.com']
 
 
 # Application definition
