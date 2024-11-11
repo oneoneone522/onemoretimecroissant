@@ -2,36 +2,41 @@
 {% block title %}禮盒資訊{% endblock %}
 {% block content %}
     <div class="container">
+        <!-- 標題區 -->
         <div class="row">
-            <h1 style="text-align: center; padding-top: 60px;"><strong>One More Time<br>Gift Box</strong></h1>
+            <div class="col-12 text-center py-5">
+                <h1><strong>One More Time<br>Gift Box</strong></h1>
+            </div>
         </div>
-        <div class="row mt-5">
+        
+        <!-- 熱門商品區 -->
+        <div class="row mt-3">
             {% for box in boxs %}
             {% if box.hot_item %}
-                <div class="col-12 col-md-6 mb-4 d-flex align-items-center">
-                    <img src="{{ box.image.url }}" class="img-fluid w-100" alt="{{ box.name }}">
+                <div class="col-12 col-lg-6 mb-4">
+                    <img src="{{ box.image.url }}" class="img-fluid w-100 rounded" alt="{{ box.name }}">
                 </div>
-                <div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center">
+                <div class="col-12 col-lg-6 mb-4 d-flex flex-column justify-content-center">
                     <h2 class="mb-3"><strong>{{ box.name }}</strong></h2>
                     <p>{{ box.description }}</p>
                 </div>
             {% endif %}
             {% endfor %}
-        </div>        
-        <hr>
+        </div>
+        
+        <hr class="my-5">
+
+        <!-- 其他禮盒產品區 -->
         <div class="row">
             {% for box in boxs %}
-                <div class="col-4 col-sm-4 col-md-4 mb-4">
-                    <div class="card h-100 d-flex flex-column" style="border: none;">
-                        {% if box.image.url %}
-                        <img src="{{ box.image.url }}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover;" alt="{{box.name}}">
-                        {% else %}
-                        <img src="..." style="height: 200px; width: 100%; object-fit: cover;" alt="禮盒商品圖">
-                        {% endif %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 d-flex flex-column border-0 shadow-sm">
+                        <img src="{{ box.image.url }}" class="card-img-top rounded-top" 
+                             style="height: 200px; width: 100%; object-fit: cover;" alt="{{ box.name }}">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><strong>{{ box.name }}</strong></h5>
                             <p class="card-text">{{ box.description }}</p>
-                            <div class="mt-auto"></div> <!-- Pushes content to the bottom -->
+                            <div class="mt-auto text-primary">NT$ {{ box.price }}</div>
                         </div>
                     </div>
                 </div>
