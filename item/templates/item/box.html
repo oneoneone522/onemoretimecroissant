@@ -21,7 +21,7 @@
         <hr>
         <div class="row">
             {% for box in boxs %}
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                <div class="col-4 col-sm-4 col-md-4 mb-4">
                     <div class="card h-100 d-flex flex-column" style="border: none;">
                         {% if box.image.url %}
                         <img src="{{ box.image.url }}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover;" alt="{{box.name}}">
