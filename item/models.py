@@ -2,7 +2,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    order = models.PositiveIntegerField(default=0)
+    order = models.PositiveIntegerField(unique=True)
 
     class Meta:
         verbose_name_plural = 'Categories'
