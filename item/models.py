@@ -2,7 +2,12 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    order = models.PositiveIntegerField(unique=True)
+    order = models.PositiveIntegerField(unique=True, default=1)
+    def save(self, *args, **kwargs):
+        if not self.order:
+            last_order = Category.objects.aggregate(models.Max('order'))['order__max']
+            self.order = last_order + 1 if last_order else 1
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Categories'
